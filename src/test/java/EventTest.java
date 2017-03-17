@@ -1,8 +1,11 @@
 import org.junit.*;
 import static org.junit.Assert.*;
-import java.util.List;
-import java.util.ArrayList;
 
 public class EventTest {
+
   @Test
+  public void newEvent_instantiatesCorrectly() {
+    Event testEvent = new Event();
+    assertEquals(true, testEvent instanceof Event);
+  }
 }
