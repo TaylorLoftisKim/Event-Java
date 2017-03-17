@@ -40,7 +40,18 @@ public class Event {
     return drinkPrice;
   }
 
+  public int getEntertainmentPrice() {
+    int entertainmentPrice = 0;
+
+    if (mEntertainment.equals("none")) {
+      entertainmentPrice = 0;
+    } else if (mEntertainment.equals("dj")) {
+      entertainmentPrice = 500;
+    }
+    return entertainmentPrice;
+  }
+
   public int getPrice() {
-    return mCost = ((mNumberOfGuests * 10) + getFoodPrice() + getDrinkPrice());
+    return mCost = ((mNumberOfGuests * 10) + getFoodPrice() + getDrinkPrice() + getEntertainmentPrice());
   }
 }

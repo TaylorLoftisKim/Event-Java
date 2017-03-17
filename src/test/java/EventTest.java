@@ -35,4 +35,13 @@ public class EventTest {
     Event testEvent = new Event(numberOfGuests, "pizza", "soda", "", "");
     assertEquals(175, testEvent.getPrice());
   }
+  @Test
+  public void newEvent_higherPriceWithEntertainment() {
+    int numberOfGuests = 10;
+    String food = "pizza";
+    String drink = "soda";
+    String entertainment = "dj";
+    Event testEvent = new Event(numberOfGuests, "pizza", "soda", "dj", "");
+    assertEquals(675, testEvent.getPrice());
+  }
 }
