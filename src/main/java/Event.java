@@ -29,7 +29,18 @@ public class Event {
     return foodPrice;
   }
 
+  public int getDrinkPrice() {
+    int drinkPrice = 0;
+
+    if  (mDrink.equals("none")) {
+      drinkPrice = 0;
+    } else if (mDrink.equals("soda")) {
+      drinkPrice = 25;
+    }
+    return drinkPrice;
+  }
+
   public int getPrice() {
-    return mCost = ((mNumberOfGuests * 10) + getFoodPrice());
+    return mCost = ((mNumberOfGuests * 10) + getFoodPrice() + getDrinkPrice());
   }
 }
