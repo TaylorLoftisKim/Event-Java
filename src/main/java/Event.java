@@ -17,7 +17,19 @@ public class Event {
     mEntertainment = entertainment;
     mCoupon = coupon;
   }
+
+  public int getFoodPrice() {
+    int foodPrice = 0;
+
+    if (mFood.equals("none")) {
+      foodPrice = 0;
+    } else if (mFood.equals("pizza")) {
+      foodPrice = 50;
+    }
+    return foodPrice;
+  }
+
   public int getPrice() {
-    return mCost = (mNumberOfGuests * 10);
+    return mCost = ((mNumberOfGuests * 10) + getFoodPrice());
   }
 }
