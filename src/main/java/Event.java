@@ -7,10 +7,10 @@ public class Event {
   private String mFood;
   private String mDrink;
   private String mEntertainment;
-  private int mCoupon;
+  private String mCoupon;
 
-  public Event(int cost, int numberOfGuests, String food, String drink, String entertainment, int coupon) {
-    mCost = cost;
+  public Event(int numberOfGuests, String food, String drink, String entertainment, String coupon) {
+    mCost = 0;
     mNumberOfGuests = numberOfGuests;
     mFood = food;
     mDrink = drink;
