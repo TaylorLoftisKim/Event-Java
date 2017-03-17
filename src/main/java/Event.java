@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class Event {
   private int mCost;
@@ -23,8 +22,10 @@ public class Event {
 
     if (mFood.equals("none")) {
       foodPrice = 0;
-    } else if (mFood.equals("pizza")) {
+    } else if (mFood.equals("sampler")) {
       foodPrice = 50;
+    } else if (mFood.equals("lobster")) {
+      foodPrice = 100;
     }
     return foodPrice;
   }
@@ -36,6 +37,8 @@ public class Event {
       drinkPrice = 0;
     } else if (mDrink.equals("soda")) {
       drinkPrice = 25;
+    } else if (mDrink.equals("alcohal")) {
+      drinkPrice = 150;
     }
     return drinkPrice;
   }
@@ -45,11 +48,24 @@ public class Event {
 
     if (mEntertainment.equals("none")) {
       entertainmentPrice = 0;
-    } else if (mEntertainment.equals("dj")) {
+    } else if (mEntertainment.equals("comedian")) {
       entertainmentPrice = 500;
+    } else if (mEntertainment.equals("dj")) {
+      entertainmentPrice = 1000;
     }
     return entertainmentPrice;
   }
+
+  // public int getCouponDiscount() {
+  //   int coupont = 0;
+  //
+  //   if (mCoupon.equals("none")) {
+  //     coupon = 0;
+  //   } else if (mCoupon.equals("half")) {
+  //     coupon = (getprice() / 2);
+  //   }
+  //   return coupon;
+  // }
 
   public int getPrice() {
     return mCost = ((mNumberOfGuests * 10) + getFoodPrice() + getDrinkPrice() + getEntertainmentPrice());
