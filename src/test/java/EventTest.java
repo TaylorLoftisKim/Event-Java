@@ -14,5 +14,10 @@ public class EventTest {
     Event testEvent = new Event(0, "", "", "", "");
     assertEquals(0, testEvent.getPrice());
   }
-
+  @Test
+  public void newEvent_higherPriceWithMoreGuests() {
+    int numberOfGuests = 10;
+    Event testEvent = new Event(numberOfGuests, "", "", "", "");
+    assertEquals(100, testEvent.getPrice());
+  }
 }

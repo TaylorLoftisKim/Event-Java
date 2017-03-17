@@ -18,6 +18,6 @@ public class Event {
     mCoupon = coupon;
   }
   public int getPrice() {
-    return mCost;
+    return mCost = (mNumberOfGuests * 10);
   }
 }
