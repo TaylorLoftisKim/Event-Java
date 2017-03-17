@@ -17,4 +17,7 @@ public class Event {
     mEntertainment = entertainment;
     mCoupon = coupon;
   }
+  public int getPrice() {
+    return mCost;
+  }
 }
