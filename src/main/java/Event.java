@@ -1,73 +1,55 @@
-
+import java.io.Console;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.List;
+import java.util.ArrayList;
+import static java.util.Arrays.asList;
 
 public class Event {
-  private int mCost;
-  private int mNumberOfGuests;
-  private String mFood;
-  private String mDrink;
-  private String mEntertainment;
-  private String mCoupon;
+  private int userTotalCost;
+  private int userNumberOfGuests;
+  private String userFood;
+  private String userDrink;
+  private String userEntertainment;
 
-  public Event(int numberOfGuests, String food, String drink, String entertainment, String coupon) {
-    mCost = 0;
-    mNumberOfGuests = numberOfGuests;
-    mFood = food;
-    mDrink = drink;
-    mEntertainment = entertainment;
-    mCoupon = coupon;
+  public Event(int numberOfGuests, String food, String drink, String entertainment) {
+    userNumberOfGuests = numberOfGuests;
+    userFood = food;
+    userDrink = drink;
+    userEntertainment = entertainment;
   }
 
-  public int getFoodPrice() {
-    int foodPrice = 0;
-
-    if (mFood.equals("none")) {
-      foodPrice = 0;
-    } else if (mFood.equals("sampler")) {
-      foodPrice = 50;
-    } else if (mFood.equals("lobster")) {
-      foodPrice = 100;
-    }
-    return foodPrice;
+  public int getUserNumberOfGuests() {
+    return userNumberOfGuests;
   }
 
-  public int getDrinkPrice() {
-    int drinkPrice = 0;
-
-    if  (mDrink.equals("none")) {
-      drinkPrice = 0;
-    } else if (mDrink.equals("soda")) {
-      drinkPrice = 25;
-    } else if (mDrink.equals("alcohal")) {
-      drinkPrice = 150;
-    }
-    return drinkPrice;
+  public String getFood() {
+    return userFood;
   }
 
-  public int getEntertainmentPrice() {
-    int entertainmentPrice = 0;
-
-    if (mEntertainment.equals("none")) {
-      entertainmentPrice = 0;
-    } else if (mEntertainment.equals("comedian")) {
-      entertainmentPrice = 500;
-    } else if (mEntertainment.equals("dj")) {
-      entertainmentPrice = 1000;
-    }
-    return entertainmentPrice;
+  public String getDrink() {
+    return userDrink;
   }
 
-  // public int getCouponDiscount() {
-  //   int coupont = 0;
-  //
-  //   if (mCoupon.equals("none")) {
-  //     coupon = 0;
-  //   } else if (mCoupon.equals("half")) {
-  //     coupon = (getprice() / 2);
-  //   }
-  //   return coupon;
-  // }
+  public String getEntertainment() {
+    return userEntertainment;
+  }
 
-  public int getPrice() {
-    return mCost = ((mNumberOfGuests * 10) + getFoodPrice() + getDrinkPrice() + getEntertainmentPrice());
+  public static int totalCost(int numberOfGuests, String food, String drink, String entertainment) {
+    Map<String, Integer> userInput = new HashMap<String, Integer>();
+    userInput.put("crackers", 5);
+    userInput.put("fruit", 8);
+    userInput.put("lobster", 15);
+    userInput.put("water", 1);
+    userInput.put("wine", 4);
+    userInput.put("liquor", 5);
+    userInput.put("comedian", 50);
+    userInput.put("singer", 100);
+    userInput.put("dj", 200);
+    userInput.put("none", 0);
+
+    int userTotalCost = (numberOfGuests * userInput.get(food)) + (numberOfGuests * userInput.get(drink)) + userInput.get(entertainment);
+
+    return userTotalCost;
   }
 }

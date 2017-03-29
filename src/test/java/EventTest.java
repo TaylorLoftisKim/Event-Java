@@ -1,57 +1,41 @@
 import org.junit.*;
-import static org.junit.Assert.*;
 import java.lang.*;
+import static org.junit.Assert.*;
 
 public class EventTest {
 
   @Test
   public void newEvent_instantiatesCorrectly() {
-    Event testEvent = new Event(0, "", "", "", "");
+    Event testEvent = new Event(0, "", "", "");
     assertEquals(true, testEvent instanceof Event);
   }
   @Test
-  public void newEvent_initialPrice() {
-    Event testEvent = new Event(0, "", "", "", "");
-    assertEquals(0, testEvent.getPrice());
+  public void newEvent_getUserNumberOfGuests_Int() {
+    Event testEvent = new Event(5, "crackers", "water", "dj");
+    assertEquals(5, testEvent.getUserNumberOfGuests());
   }
+
   @Test
-  public void newEvent_higherPriceWithMoreGuests() {
-    int numberOfGuests = 10;
-    Event testEvent = new Event(numberOfGuests, "", "", "", "");
-    assertEquals(100, testEvent.getPrice());
+  public void newEvent_getsFood_String() {
+    Event testEvent = new Event(5, "crackers", "water", "dj");
+    assertEquals("crackers", testEvent.getFood());
   }
+
   @Test
-  public void newEvent_higherPriceWithFood() {
-   int numberOfGuests = 10;
-   String food = "sampler";
-   Event testEvent = new Event(numberOfGuests, "sampler", "", "", "");
-   assertEquals(150, testEvent.getPrice());
+  public void newEvent_getsDrink_String() {
+    Event testEvent = new Event(5, "crackers", "water", "dj");
+    assertEquals("water", testEvent.getDrink());
   }
+
   @Test
-  public void newEvent_higherPriceWithDrinks() {
-    int numberOfGuests = 10;
-    String food = "sampler";
-    String drink = "alcohal";
-    Event testEvent = new Event(numberOfGuests, "sampler", "alcohal", "", "");
-    assertEquals(300, testEvent.getPrice());
+  public void newEvent_getEntertainment_String() {
+    Event testEvent = new Event(5, "crackers", "water", "dj");
+    assertEquals("dj", testEvent.getEntertainment());
   }
+
   @Test
-  public void newEvent_higherPriceWithEntertainment() {
-    int numberOfGuests = 10;
-    String food = "sampler";
-    String drink = "alcohal";
-    String entertainment = "dj";
-    Event testEvent = new Event(numberOfGuests, "sampler", "alcohal", "dj", "");
-    assertEquals(1300, testEvent.getPrice());
+  public void newEvent_calculateTotalCost_Int() {
+    Event testEvent = new Event(5, "crackers", "water", "dj");
+    assertEquals(230, testEvent.totalCost(5, "crackers", "water", "dj"));
   }
-  // @Test
-  // public void newEvent_couponGivesDiscount() {
-  //   int numberOfGuests = 10;
-  //   String food = "sampler";
-  //   String drink = "alcohal";
-  //   String entertainment = "dj";
-  //   String coupon = "coupon";
-  //   Event testEvent = new Event(numberOfGuests, "sampler", "alcohal", "dj", "coupon");
-  //   assertEquals(340, testEvent.getPrice());
-  // }
 }
